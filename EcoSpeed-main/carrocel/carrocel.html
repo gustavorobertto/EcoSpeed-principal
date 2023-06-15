@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Carrossel de Imagens</title>
+  <style>
+    #carrossel {
+      width: 100%;
+      max-width: 600px;
+      height: 300px;
+      overflow: hidden;
+      position: relative;
+      border: 1px solid #ccc;
+      margin: 0 auto;
+    }
+
+    #carrossel ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      width: 300%;
+      height: 100%;
+      position: relative;
+      transition: left 0.5s;
+      animation: slide 9s infinite;
+    }
+
+    #carrossel ul li {
+      width: 33.33%;
+      height: 100%;
+      float: left;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    #carrossel .prev,
+    #carrossel .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      padding: 10px;
+      cursor: pointer;
+      z-index: 1;
+    }
+
+    #carrossel .prev {
+      left: 0;
+    }
+
+    #carrossel .next {
+      right: 0;
+    }
+
+    @keyframes slide {
+      0% {
+        left: 0;
+      }
+      33.33% {
+        left: -100%;
+      }
+      66.66% {
+        left: -200%;
+      }
+      100% {
+        left: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="carrossel">
+    <ul>
+      <li style="background-image: url('LOGO\ RED.png');"></li>
+      <li style="background-image: url('LOGO\ WHATE.png');"></li>
+      <li style="background-image: url('RFLE1.png');"></li>
+    </ul>
+    <div class="prev">&#10094;</div>
+    <div class="next">&#10095;</div>
+  </div>
+
+  <script>
+    const carrossel = document.getElementById('carrossel');
+    const ul = carrossel.querySelector('ul');
+    const prev = carrossel.querySelector('.prev');
+    const next = carrossel.querySelector('.next');
+
+    let currentSlide = 0;
+
+    prev.addEventListener('click', function() {
+      if (currentSlide > 0) {
+        currentSlide--;
+        ul.style.left = '-' + (currentSlide * 100) + '%';
+      }
+    });
+
+    next.addEventListener('click', function() {
+      if (currentSlide < 2) {
+        currentSlide++;
+        ul.style.left = '-' + (currentSlide * 100) + '%';
+      }
+    });
+
+    setInterval(function() {
+      if (currentSlide < 2) {
+        currentSlide++;
+      } else {
+        currentSlide = 0;
+      }
+      ul.style.left = '-' + (currentSlide * 100) + '%';
+    }, 3000);
+  </script>
+</body>
+</html>

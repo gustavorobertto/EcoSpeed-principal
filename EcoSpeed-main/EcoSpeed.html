@@ -1,0 +1,349 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Eletricas.css"> <script src="motole.js"></script>
+    <title>EcoSpeed - Moto Elétricas</title>
+ 
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+   
+</head>
+
+<header>
+    
+      <div class="navbar-toggle">
+        <div class="toggle-line"></div>
+        <div class="toggle-line"></div>
+        <div class="toggle-line"></div>
+      </div>
+
+      <ul class="navbar-menu">
+        <li><a href="EcoSpeed.html">Início</a></li>
+        <li><a href="sobre/sobre.html">Sobre</a></li>
+        <li><a href="contatos/contatos.html">Contato</a></li>
+      </ul>
+      
+      <div class="barra-pesquisa">
+        <input type="text" id="pesquisaInput" placeholder="Pesquisar produtos">
+        <span class="icone-pesquisa"></span>
+      </div>
+
+      <div class="navbar">
+        <div class="navbar-logo">
+          <a href="login e cadastro/Login.html" class="conta-hover">Login</a><a class="contasep">|</a><a href="login e cadastro/Cadastro.html" class="conta-hover" >Cadastro</a>
+      </div>
+    
+  </header>
+
+
+
+
+
+
+<!-- javascript barra de pesquisa --> 
+  <script>
+    document.getElementById('pesquisaInput').addEventListener('keyup', function() {
+  var filter = this.value.toLowerCase();
+  var products = document.querySelectorAll('.box');
+
+  products.forEach(function(product) {
+    var image = product.querySelector('img');
+    var imageName = image.src.toLowerCase();
+    
+    if (imageName.indexOf(filter) > -1) {
+      product.style.display = 'block';
+    } else {
+      product.style.display = 'none';
+    }
+  });
+});
+
+  </script>
+
+
+<!--icones  tamanho --> 
+<div class="icons">
+<div class="search-box">   
+</div>
+
+
+
+   <!-- header section ends icons...-->
+<div class="icons">        
+<a href="#" class="fas fa-shopping-cart"></a>
+<a href="#" class="fas fa-heart"></a>
+</div>
+
+</header>
+
+
+<br><br><br><br>
+<br><br><br><br>
+
+<!--carocel-->
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #carrossel {
+      width: 100%;
+      max-width: 600px;
+      height: 300px;
+      overflow: hidden;
+      position: relative;
+      border: 3px solid #ffffff;
+      margin: 0 auto;
+    }
+
+    #carrossel ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      width: 300%;
+      height: 100%;
+      position: relative;
+     
+
+    }
+
+    #carrossel ul li {
+      width: 33.33%;
+      height: 100%;
+      float: left;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+ 
+
+
+  </style>
+</head>
+<body>
+  <div id="carrossel">
+    <ul>
+      <li style="background-image: url('img/2.jpg');"></li>
+      <li style="background-image: url('img/1.jpg');"></li>
+      <li style="background-image: url('img/2.jpg');"></li>
+    </ul>
+ 
+ 
+  </div>
+
+  <style>
+    #carrossel ul {
+      transition: left 1s ease;
+    }
+  </style>
+  
+
+<!-- javascript carrossel -->  
+  <script>
+    const carrossel = document.getElementById('carrossel');
+    const ul = carrossel.querySelector('ul');
+  
+    let currentSlide = 0;
+    const totalSlides = 3;
+  
+    function moveNext() {
+      if (currentSlide < totalSlides - 1) {
+        currentSlide++;
+      } else {
+        currentSlide = 0;
+        ul.style.transition = 'none';
+        ul.style.left = '-' + (totalSlides * 100) + '%';
+        setTimeout(function() {
+          ul.style.transition = '';
+          currentSlide = 1;
+          ul.style.left = '-' + (currentSlide * 100) + '%';
+        }, 50);
+      }
+      ul.style.left = '-' + (currentSlide * 100) + '%';
+    }
+  
+    setInterval(moveNext, 4000);
+  </script>
+  
+</body>
+</html>
+
+<br><br><br><br>
+<!--fim do carrossel-->
+
+<!--Caixa de Produtos 1-->
+<section class="menu" id="menu">
+
+    <section class="products" id="products">
+
+        <div class="box-container">
+
+            <!--Produto 1-->
+            <div class="box">
+                <div class="icons">
+                    <a href="compra/comprar.html" class="fas fa-shopping-cart"></a>
+                </div>
+                
+                <br />
+                <a class="nprodutos">EVA-EsseEsse9</a>
+
+                <div class="image">
+                    
+                    <img src="produtos/EVA-EsseEsse9.jpg" alt="">
+                </div>
+
+                <div class="content">
+                    <div class="price">R$ 15.000 <span>R$17.000</span></div>
+                </div>
+
+            </div>
+    
+
+            <!--Produto 2-->
+            <div class="box">
+                <div class="icons">
+                    <a href="compra/comprar.html" class="fas fa-shopping-cart"></a>
+                </div>
+                
+                <br />
+                <a class="nprodutos">Shineray</a>
+
+                <div class="image">
+                    <img src="produtos/Shineray.jpg" alt="">
+                </div>
+
+                <div class="content">
+                    <div class="price">R$ 10.990 <span>R$14.990</span></div>
+                </div>
+
+            </div>
+
+            <!--Produto 3-->
+            <div class="box">
+                <div class="icons">
+                    <a href="compra/comprar.html" class="fas fa-shopping-cart"></a>
+                </div>
+
+                <br />
+                <a class="nprodutos">Yamaha-Evino</a>
+
+                
+                <div class="image">
+                    <img src="produtos/Yamaha-Evino.jpg" alt="">
+                </div>
+
+                <div class="content">
+                    <div class="price">R$ 35.400 <span>R$40.000</span></div>
+                </div>
+
+            </div>
+                
+            </div>
+    
+        </div>
+    </section>
+
+<!--Fim da Caixa de Produtos 1-->
+    <br />
+    <br />
+    <br />
+<!--Caixa de Produtos 2-->
+
+    <section class="menu" id="menu">
+      <section class="products" id="products">
+          <div class="box-container">
+  
+              <!--Produto 1-->
+              <div class="box">
+                  <div class="icons">
+                      <a href="compra/comprar.html" class="fas fa-shopping-cart"></a>
+                  </div>
+                  
+                  <br />
+                  <a class="nprodutos">U-GO</a>
+
+                  <div class="image">
+                      <img src="produtos/U-GO.jpg" alt="">
+                  </div>
+  
+                  <div class="content">
+                      <div class="price">R$ 33.000 <span>R$40.000</span></div>
+                  </div>
+              </div>
+      
+  
+              <!--Produto 2-->
+              <div class="box">
+                  <div class="icons">
+                      <a href="compra/comprar.html" class="fas fa-shopping-cart"></a>
+                  </div>
+
+                  <br />
+                  <a class="nprodutos">Boram-Chopper</a>
+                  
+                  <div class="image">
+                      <img src="produtos/Boram-Chopper.jpg" alt="">
+                  </div>
+  
+                  <div class="content">
+                      <div class="price">R$ 70.000 <span>R$80.000</span></div>
+                  </div>
+              </div>
+              
+              <!--Produto 3-->
+              <div class="box">
+                  <div class="icons">
+                      <a href="compra/comprar.html" class="fas fa-shopping-cart"></a>
+                  </div>
+                  
+                  <br />
+                  <a class="nprodutos">Energie Mobi</a>                  
+
+                  <div class="image">
+                      <img src="produtos/EnergieMobi.jpg" alt="">
+                  </div>
+  
+                  <div class="content">
+                      <div class="price">R$ 59.000 <span>R$65.000</span></div>
+                  </div>
+              </div>
+                  
+              </div>
+      
+          </div>
+      </section>
+
+<!--Fim da Caixa de Produtos 2-->
+    <br />
+    <br />
+    <br />
+ 
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+<section class="footer">
+
+  <footer>
+      <div class="credit">Nossas Redes Socias</div>
+
+      <div class="share">
+          <a href="https://www.facebook.com/profile.php?id=100093088724093" target="_blank" class="fab fa-facebook-f"></a>
+          <a href="https://twitter.com/ecospeedbr" target="_blank" class="fab fa-twitter"></a>
+          <a href="https://www.instagram.com/ecospeedbr/" target="_blank" class="fab fa-instagram"></a>
+          <a href="https://api.whatsapp.com/send?1=pt_BR&phone=5511985285578" class="fab fa-whatsapp"></a>
+          <a href="" class="fab fa-linkedin"></a>
+      </div>
+  </footer>
+
+</section>
+
+
+</body>
+</html>

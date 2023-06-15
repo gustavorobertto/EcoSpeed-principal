@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ecospeed Online</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    a{
+      color: #fff;
+      
+    }
+
+    header {
+     background: #402a7c;
+      color: #fff;
+      padding: 20px;
+ 
+    }
+
+    .navbar-menu {
+      display: flex;
+      list-style: none;
+    }
+
+    .navbar-menu li {
+      margin-right: 40px;
+    }
+
+    .navbar-menu a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .produto {
+      text-align: center;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+
+    .produto img {
+      width: 150px;
+      height: 150px;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #carrinho {
+      margin-top: 20px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    #itens-carrinho {
+      list-style: none;
+      padding: 0;
+    }
+
+    #itens-carrinho li {
+      margin-bottom: 10px;
+    }
+
+    #total-carrinho {
+      font-weight: bold;
+    }
+
+    /* Consulta de mídia para telas grandes (desktops) */
+    @media (min-width: 1024px) {
+      #produtos {
+        display: flex;
+        justify-content: space-around;
+      }
+    }
+
+    /* Consulta de mídia para tablets e dispositivos com tela média */
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .produto {
+        width: 45%;
+      }
+    }
+
+    /* Consulta de mídia para dispositivos com tela pequena (celulares) */
+    @media (max-width: 767px) {
+      .produto {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+
+
+  <header>
+    <ul class="navbar-menu">
+    <li><a href="../EcoSpeed.html">EcoSpeed</a></li>
+      <li><a href="../sobre/sobre.html">Sobre</a></li>
+      <li><a href="../contatos/contatos.html">Contato</a></li>
+    </ul>
+  </header>
+
+  <div id="produtos">
+    <div class="produto">
+      <img src="EVS-Voltz.png" alt="Produto 1">
+      <h2>Produto 1</h2>
+      <p>R$ 2.500,00</p>
+      <button onclick="adicionarAoCarrinho('Produto 1',  2500)">Adicionar ao carrinho</button>
+    </div>
+
+    <div class="produto">
+      <img src="Boram-Chopper.jpg" alt="Produto 2">
+      <h2>Produto 2</h2>
+      <p>R$ 1.000,00</p>
+      <button onclick="adicionarAoCarrinho('Produto 2', 1000)">Adicionar ao carrinho</button>
+    </div>
+
+    <div class="produto">
+      <img src="EnergieMobi.jpg" alt="produto 3 ">
+      <h2>Produto 3</h2>
+      <p>R$ 3.000,00</p>
+      <button onclick="adicionarAoCarrinho('Produto 3', 3000)">Adicionar ao carrinho</button>
+    </div>
+
+
+    <div class="produto">
+      <img src="EnergieMobi.jpg" alt="Produto 4">
+      <h2>Produto 4</h2>
+      <p>R$ 2.000,00</p>
+      <button onclick="adicionarAoCarrinho('Produto 4', 2000)">Adicionar ao carrinho</button>
+    </div>
+  </div>
+  </div>
+
+  <div id="carrinho">
+    <h2>Carrinho de Compras</h2>
+    <ul id="itens-carrinho"></ul>
+    <p id="total-carrinho">Total: R$ 0,00</p>
+  </div>
+
+  <script>
+    let carrinho = [];
+    let total = 0;
+
+    function adicionarAoCarrinho(nome, preco) {
+      carrinho.push({ nome, preco });
+      total += preco;
+
+      atualizarCarrinho();
+    }
+
+    function atualizarCarrinho() {
+      const itensCarrinho = document.getElementById('itens-carrinho');
+      itensCarrinho.innerHTML = '';
+
+      carrinho.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = `${item.nome} - R$ ${item.preco.toFixed(2)}`;
+        itensCarrinho.appendChild(li);
+      });
+
+      const totalCarrinho = document.getElementById('total-carrinho');
+      totalCarrinho.textContent = `Total: R$ ${total.toFixed(2)}`;
+    }
+  </script>
+</body>
+</html>
